@@ -1,22 +1,18 @@
 const mysql = require("mysql2/promise");
 
-async function start() {
+async function connectDB() {
   const connection = await mysql.createConnection({
-    host: "127.0.0.1",
+    host: process.env.DB_HOST || "127.0.0.1",
+    user: process.env.DB_USER || "todoappuser",
+    password: process.env.DB_PASSWORD || "2!9Ofq2d1S*$",
+    database: process.env.DB_NAME || "todoapp_db",
     port: 3306,
-    user: "todoappuser",
-    password: "2!9Ofq2d1S*$",
-    database: "todoapp_db",
     multipleStatements: true
   });
 
   shapeDatabase(connection);
-  module.exports = connection;
-  const app = require("./app");
-  app.listen(process.env.PORT);
+  return connection;
 }
-
-start();
 
 function shapeDatabase(db) {
   db.query(`CREATE TABLE IF NOT EXISTS todo_items (
@@ -28,3 +24,5 @@ function shapeDatabase(db) {
 );
 `);
 }
+
+module.exports = connectDB;

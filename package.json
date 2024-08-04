@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "watch": "nodemon db --ignore frontend-js --ignore public/",
-    "start": "node db",
+    "watch": "nodemon server --ignore frontend-js --ignore public/",
+    "start": "node server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
