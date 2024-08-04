@@ -1,0 +1,28 @@
+{
+  "name": "todo-app-react-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "watch": "nodemon db --ignore frontend-js --ignore public/",
+    "start": "node db",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "overrides": {
+    "semver": "7.5.3"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "marked": "^11.2.0",
+    "mysql2": "^3.9.1",
+    "nodemon": "^3.0.3",
+    "sanitize-html": "^2.11.0",
+    "validator": "^13.11.0"
+  }
+}
