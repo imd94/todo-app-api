@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon db --ignore frontend-js --ignore public/",
-    "watch": "nodemon server --ignore frontend-js --ignore public/",
-    "start": "node server",
+    "start": "node db",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

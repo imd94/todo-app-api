@@ -54,7 +54,7 @@ Item.prototype.createItem = async function() {
             const [{ insertId }] = await db.execute("INSERT INTO `todo_items` (`description`, `created_date`, `completed`) VALUES(?, ?, ?)", [this.data.item_description, this.data.created_date, this.data.completed]);
             return insertId;
         } catch(e) {
-            console.log('Connection to db failed!');
+            console.log('Connection to db failed!', e);
         }
     } else {
         return { errors: this.errors };
@@ -84,7 +84,7 @@ Item.getItems = async function(category) {
             return false;
         }
     } catch(e) {
-        console.log('Connection to db failed!');
+        console.log('Connection to db failed!', e);
     }
 }
 
@@ -98,7 +98,7 @@ Item.countActiveItems = async function() {
             return false;
         }
     } catch(e) {
-        console.log('Connection to db failed!'); 
+        console.log('Connection to db failed!', e); 
     }
 }
 
@@ -112,7 +112,7 @@ Item.prototype.updateItem = async function() {
 
             return 'success';
         } catch(e) {
-            console.log('Connection to db failed!'); 
+            console.log('Connection to db failed!', e); 
         }
     } else {
         return { errors: this.errors };
@@ -127,7 +127,7 @@ Item.prototype.updateItemStatus = async function() {
 
         return 'success';
     } catch(e) {
-        console.log('Connection to db failed!'); 
+        console.log('Connection to db failed!', e); 
     }
 }
 
@@ -138,7 +138,7 @@ Item.prototype.deleteItem = async function() {
         await db.execute("DELETE FROM `todo_items` WHERE `id` = ?", [this.itemId]);
         return 'success';
     } catch(e) {
-        console.log('Connection to db failed!'); 
+        console.log('Connection to db failed!', e); 
     }
 }
 
@@ -153,7 +153,7 @@ Item.deleteCompletedItems = async function() {
             return { warning: 'There are no completed items in database currently!' };
         }
     } catch(e) {
-        console.log('Connection to db failed!'); 
+        console.log('Connection to db failed!', e); 
     }
 }
 
@@ -167,7 +167,7 @@ Item.findAllCompletedItems = async function() {
             return false;
         }
     } catch(e) {
-        console.log('Connection to db failed!'); 
+        console.log('Connection to db failed!', e); 
     }
 }
 
