@@ -11,6 +11,7 @@ exports.apiCreateItem = async function(req, res) {
             res.json(itemInfo);
         }
     } catch(errors) {
+        console.error(errors);
         console.log(errors);
     }
 }
