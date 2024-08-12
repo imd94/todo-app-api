@@ -11,7 +11,7 @@ exports.apiCreateItem = async function(req, res) {
             res.json(itemInfo);
         }
     } catch(errors) {
-        console.error(errors);
+        errors && console.error(errors);
         console.log(errors);
     }
 }
@@ -21,7 +21,7 @@ exports.apiGetItems = async function(req, res) {
         const items = await Item.getItems(req.body.category);
         res.json(items);
     } catch(errors) {
-        console.error(errors);
+        errors && console.error(errors);
         console.log(errors);
     }
 }
@@ -38,7 +38,7 @@ exports.apiUpdateItem = async function(req, res) {
             res.json(false);
         }
     } catch(errors) {
-        console.error(errors);
+        errors && console.error(errors);
         console.log(errors);
     }
 }
@@ -55,7 +55,7 @@ exports.apiUpdateItemStatus = async function(req, res) {
             res.json(false);
         }
     } catch(errors) {
-        console.error(errors);
+        errors && console.error(errors);
         console.log(errors);
     }
 }
@@ -72,7 +72,7 @@ exports.apiDeleteItem = async function(req, res) {
             res.json(false);
         }
     } catch(errors) {
-        console.error(errors);
+        errors && console.error(errors);
         console.log(errors);
     }
 }
@@ -87,7 +87,7 @@ exports.apiDeleteCompletedItems = async function(req, res) {
             res.json(response.warning);
         }
     } catch(errors) {
-        console.error(errors);
+        errors && console.error(errors);
         console.log(errors);
     }
 }
@@ -102,7 +102,7 @@ exports.apiGetActiveItemsCount = async function(req, res) {
             res.json(0);
         }
     } catch(errors) {
-        console.error(errors);
+        errors && console.error(errors);
         console.log(errors);
     }
 }
